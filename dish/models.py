@@ -8,10 +8,16 @@ class Chef(AbstractUser):
         ordering = ["username"]
         verbose_name_plural = "cooks"
 
+    def __str__(self):
+        return f"{self.username}"
+
 
 class DishType(models.Model):
 
     name = models.CharField(max_length=255, unique=True)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class Product(models.Model):
@@ -25,6 +31,9 @@ class Product(models.Model):
     name = models.CharField(max_length=255, unique=True)
     units = models.CharField(max_length=5, choices=UNITS_OF_MEASUREMENT)
 
+    def __str__(self):
+        return f"{self.name}"
+
 
 class Dish(models.Model):
     name = models.CharField(max_length=255)
@@ -37,3 +46,6 @@ class Dish(models.Model):
     )
     ingredients = models.ManyToManyField(Product, blank=True)
     cooks = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="dishes")
+
+    def __str__(self):
+        return f"{self.name}"
