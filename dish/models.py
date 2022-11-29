@@ -40,7 +40,7 @@ class Dish(models.Model):
     created_data = models.DateTimeField(auto_now_add=True)
     description = models.CharField(max_length=500, blank=True)
     steps = models.TextField()
-    price = models.DecimalField(max_digits=7, decimal_places=2)
+    price = models.DecimalField(max_digits=7, decimal_places=2, blank=True)
     dish_type = models.ForeignKey(
         "DishType", on_delete=models.SET_NULL, related_name="dishes", null=True,
     )
