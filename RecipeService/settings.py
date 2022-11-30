@@ -29,6 +29,8 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+AUTH_USER_MODEL = "dish.Chef"
+
 ALLOWED_HOSTS = []
 
 
@@ -61,8 +63,7 @@ ROOT_URLCONF = "RecipeService.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates']
-        ,
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
