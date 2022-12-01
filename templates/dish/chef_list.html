@@ -1,0 +1,70 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}
+  Chef list
+{% endblock %}
+
+{% block content %}
+  <header></header>
+<body>
+  <div class="main-content">
+    <div class="container mt-7">
+      <!-- Table -->
+      {% if chef_list %}
+        <h2 class="mb-5">Chef list</h2>
+        <div class="row">
+          <div class="col">
+            <div class="card shadow">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Full name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Dish count</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for chef in chef_list %}
+                    <tr>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body">
+                            <span class="mb-0 text-sm">{{ chef }}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <td>
+                        {{ chef.first_name }} {{ chef.last_name }}
+                      </td>
+                      <td>
+                        <span class="badge badge-dot mr-4">
+                          <i class="bg-warning">{{ chef.is_active }}</i>
+                        </span>
+                      </td>
+                      <td>
+                        <div class="avatar-group">
+                          <a href="#">
+                            {{ chef.dishes.count }}
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  {% empty %}
+                    <p>You are first chef</p>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+              <div class="card-footer py-4">
+                {% include 'includes/pagination.html' %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+{% endblock %}

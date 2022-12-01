@@ -1,4 +1,7 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.views import generic
+
 from .models import Chef, Dish, DishType
 
 
@@ -13,3 +16,10 @@ def index(request):
     }
 
     return render(request, "dish/index.html", context=context)
+
+
+class ChefListView(LoginRequiredMixin, generic.ListView):
+    model = Chef
+    queryset = Chef.objects.all().prefetch_related("dishes")
+    template_name = "dish/chef_list.html"
+    paginate_by = 5

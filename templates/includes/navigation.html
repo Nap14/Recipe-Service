@@ -24,10 +24,10 @@
                   </a>
                   <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
                     <div class="d-none d-lg-block">
-                      <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1" href="#">
+                      <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                         Main pages
                       </h6>
-                      <a href="#" class="dropdown-item border-radius-md">
+                      <a href="{% url 'dish:chef-list' %}" class="dropdown-item border-radius-md">
                         <span>Chefs</span>
                       </a>
                       <a href="#" class="dropdown-item border-radius-md">
@@ -41,7 +41,7 @@
                           Account
                         </h6>
 
-                        <a href="{% url '#' pk=user.id %}" class="dropdown-item border-radius-md">
+                        <a href="#" class="dropdown-item border-radius-md">
                           <span>My page</span>
                         </a>
                       {% endif %}
