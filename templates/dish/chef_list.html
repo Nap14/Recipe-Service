@@ -31,7 +31,7 @@
                       <th scope="row">
                         <div class="media align-items-center">
                           <div class="media-body">
-                            <span class="mb-0 text-sm">{{ chef }}</span>
+                            <a href="{% url 'dish:chef-detail' pk=chef.id %}"><span class="mb-0 text-sm">{{ chef.username }}</span></a>
                           </div>
                         </div>
                       </th>
@@ -45,7 +45,7 @@
                       </td>
                       <td>
                         <div class="avatar-group">
-                          <a href="#">
+                          <a>
                             {{ chef.dishes.count }}
                           </a>
                         </div>
