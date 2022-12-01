@@ -40,9 +40,12 @@
                         <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
                           Account
                         </h6>
-
-                        <a href="#" class="dropdown-item border-radius-md">
+                        <a href="{% url 'dish:chef-detail' pk=request.user.id %}" class="dropdown-item border-radius-md">
                           <span>My page</span>
+                        </a>
+                      {% else %}
+                        <a class="dropdown-item border-radius-md">
+                          Sign In
                         </a>
                       {% endif %}
                     </div>
@@ -55,7 +58,7 @@
                     <a class="nav-link nav-link-icon me-2"
                       href="#">
                       <i class="fa fa-sign-out me-1"></i>
-                      <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sign OUT">Logout</p>
+                      <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout">Logout</p>
                     </a>
                   </li>
                 {% else %}
