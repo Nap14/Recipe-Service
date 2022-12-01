@@ -29,3 +29,10 @@ class ChefDetailView(LoginRequiredMixin, generic.DetailView):
     model = Chef
     template_name = "dish/chef_detail.html"
     queryset = Chef.objects.all().prefetch_related("dishes")
+
+
+class DishListView(generic.ListView):
+    model = Dish
+    queryset = Dish.objects.all().prefetch_related("ingredients")
+    template_name = "dish/dish_list.html"
+    paginate_by = 5
