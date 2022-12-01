@@ -6,7 +6,7 @@ from dish.models import DishType, Dish, Product, Chef
 @admin.register(Chef)
 class ChefAdmin(UserAdmin):
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ("additional info", {"fields": ("first_name", "last_name", "pseudonym")}),
+        ("additional info", {"fields": ("first_name", "last_name")}),
     )
 
 
