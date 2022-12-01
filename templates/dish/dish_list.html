@@ -27,7 +27,7 @@
                     <th scope="row">
                       <div class="media align-items-center">
                         <div class="media-body">
-                          <a href="#"><span class="mb-0 text-sm">{{ dish.name }}</span></a>
+                          <a href="{% url 'dish:dish-detail' pk=dish.id %}"><span class="mb-0 text-sm">{{ dish.name }}</span></a>
                         </div>
                       </div>
                     </th>
