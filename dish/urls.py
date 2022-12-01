@@ -5,6 +5,7 @@ from .views import (
     ChefDetailView,
     DishListView,
     DishDetailView,
+    ProductListView,
 )
 
 urlpatterns = [
@@ -13,6 +14,7 @@ urlpatterns = [
     path("chef/<int:pk>/", ChefDetailView.as_view(), name="chef-detail"),
     path("dish/", DishListView.as_view(), name="dish-list"),
     path("dish/<int:pk>/", DishDetailView.as_view(), name="dish-detail"),
+    path("product/", ProductListView.as_view(), name="product-list"),
 ]
 
 app_name = "dish"

@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+  Products
+{% endblock %}
+
+{% block content %}
+    <div class="main-content">
+    <div class="container mt-7">
+      {% if product_list %}
+        <h2 class="mb-5">Product list</h2>
+        <div class="row">
+          <div class="col">
+            <div class="card shadow">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Product name</th>
+                    <th scope="col">Product units</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for product in product_list %}
+                    <tr>
+                      <td>{{ product.id }}</td>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body">
+                            <span class="mb-0 text-sm">{{ product.name }}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <td>
+                        {{ product.units }}
+                      </td>
+                    </tr>
+                  {% empty %}
+                    <p>Have not dishes</p>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

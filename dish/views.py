@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
-from .models import Chef, Dish, DishType
+from .models import Chef, Dish, DishType, Product
 
 
 def index(request):
@@ -41,4 +41,15 @@ class DishListView(generic.ListView):
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
     template_name = "dish/dish_detail.html"
-    queryset = Dish.objects.all().prefetch_related("dish_type").prefetch_related("ingredients").prefetch_related("cooks")
+    queryset = (
+        Dish.objects.all()
+        .prefetch_related("dish_type")
+        .prefetch_related("ingredients")
+        .prefetch_related("cooks")
+    )
+
+
+class ProductListView(LoginRequiredMixin, generic.ListView):
+    model = Product
+    paginate_by = 5
+    template_name = "dish/product_list.html"

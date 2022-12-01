@@ -33,7 +33,7 @@
                       <a href="{% url 'dish:dish-list' %}" class="dropdown-item border-radius-md">
                         <span>Dishes</span>
                       </a>
-                      <a href="#" class="dropdown-item border-radius-md">
+                      <a href="{% url 'dish:product-list' %}" class="dropdown-item border-radius-md">
                         <span>Products</span>
                       </a>
                       {% if request.user.is_authenticated %}
