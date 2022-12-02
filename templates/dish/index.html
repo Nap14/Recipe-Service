@@ -24,7 +24,7 @@
             <div class="row">
               <div class="col-md-4 position-relative">
                 <div class="p-3 text-center">
-                  <h1 class="text-gradient text-primary"><span id="state1">{{ dishes }}</span>+</h1>
+                  <h1 class="text-gradient text-primary"><span id="state1">{{ dishes }}</span></h1>
                   <h5 class="mt-3">Recipes</h5>
                   <p class="text-sm font-weight-normal">to cook whatever you want</p>
                 </div>
@@ -32,7 +32,7 @@
               </div>
               <div class="col-md-4 position-relative">
                 <div class="p-3 text-center">
-                  <h1 class="text-gradient text-primary"> <span id="state2">{{ chefs }}</span>+</h1>
+                  <h1 class="text-gradient text-primary"> <span id="state2">{{ chefs }}</span></h1>
                   <h5 class="mt-3">Chefs</h5>
                   <p class="text-sm font-weight-normal">who create masterpieces</p>
                 </div>
@@ -40,7 +40,7 @@
               </div>
               <div class="col-md-4">
                 <div class="p-3 text-center">
-                  <h1 class="text-gradient text-primary" id="state3">{{ types }}</h1>
+                  <h1 class="text-gradient text-primary" id="state3">{{ types }}<a href="{% url 'dish:dish-type-create' %}">+</a></h1>
                   <h5 class="mt-3">Types</h5>
                   <p class="text-sm font-weight-normal">dishes for all occasions</p>
                 </div>

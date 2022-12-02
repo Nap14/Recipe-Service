@@ -10,6 +10,7 @@ from .views import (
     ProductListView,
     ProductCreateView,
     ProductUpdateView,
+    DishTypeCreateView,
 )
 
 urlpatterns = [
@@ -22,7 +23,10 @@ urlpatterns = [
     path("dish/<int:pk>/update/", DishUpdateView.as_view(), name="dish-update"),
     path("product/", ProductListView.as_view(), name="product-list"),
     path("product/create/", ProductCreateView.as_view(), name="product-create"),
-    path("product/<int:pk>/update/", ProductUpdateView.as_view(), name="product-update"),
+    path(
+        "product/<int:pk>/update/", ProductUpdateView.as_view(), name="product-update"
+    ),
+    path("dish-type/create/", DishTypeCreateView.as_view(), name="dish-type-create"),
 ]
 
 app_name = "dish"

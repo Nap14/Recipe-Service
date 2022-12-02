@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import DishForm
+from .forms import DishForm, DishTypeForm
 from .models import Chef, Dish, DishType, Product
 
 
@@ -83,3 +83,9 @@ class ProductUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "dish/product_form.html"
     success_url = reverse_lazy("dish:product-list")
 
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    form_class = DishTypeForm
+    template_name = "dish/dish_type_create_view.html"
+    success_url = reverse_lazy("dish:dish-list")
