@@ -21,5 +21,6 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
+    path("login/", include("django.contrib.auth.urls")),
     path("", include("dish.urls", namespace="dish")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
