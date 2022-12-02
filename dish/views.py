@@ -61,3 +61,10 @@ class ProductListView(LoginRequiredMixin, generic.ListView):
     model = Product
     paginate_by = 5
     template_name = "dish/product_list.html"
+
+
+class ProductCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Product
+    fields = "__all__"
+    template_name = "dish/product_create.html"
+    success_url = reverse_lazy("dish:product-list")

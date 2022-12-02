@@ -8,7 +8,10 @@
     <div class="main-content">
     <div class="container mt-7">
       {% if product_list %}
-        <h2 class="mb-5">Product list</h2>
+        <h2 class="mb-5">
+          Product list
+          <a href="{% url 'dish:product-create' %}"  style="float:right;" class="btn btn-sm btn-primary">Add</a>
+        </h2>
         <div class="row">
           <div class="col">
             <div class="card shadow">
