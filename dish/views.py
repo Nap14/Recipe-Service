@@ -40,12 +40,6 @@ class DishListView(generic.ListView):
     paginate_by = 5
 
 
-class DishCreateView(LoginRequiredMixin, generic.CreateView):
-    form_class = DishForm
-    template_name = "dish/dish_create.html"
-    success_url = reverse_lazy("dish:dish-list")
-
-
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
     template_name = "dish/dish_detail.html"
@@ -57,6 +51,19 @@ class DishDetailView(LoginRequiredMixin, generic.DetailView):
     )
 
 
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    form_class = DishForm
+    template_name = "dish/dish_form.html"
+    success_url = reverse_lazy("dish:dish-list")
+
+
+class DishUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Dish
+    form_class = DishForm
+    template_name = "dish/dish_form.html"
+    success_url = reverse_lazy("dish:dish-list")
+
+
 class ProductListView(LoginRequiredMixin, generic.ListView):
     model = Product
     paginate_by = 5
@@ -66,5 +73,13 @@ class ProductListView(LoginRequiredMixin, generic.ListView):
 class ProductCreateView(LoginRequiredMixin, generic.CreateView):
     model = Product
     fields = "__all__"
-    template_name = "dish/product_create.html"
+    template_name = "dish/product_form.html"
     success_url = reverse_lazy("dish:product-list")
+
+
+class ProductUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Product
+    fields = "__all__"
+    template_name = "dish/product_form.html"
+    success_url = reverse_lazy("dish:product-list")
+
