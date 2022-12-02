@@ -5,6 +5,7 @@ from .views import (
     ChefDetailView,
     DishListView,
     DishDetailView,
+    DishCreateView,
     ProductListView,
 )
 
@@ -14,6 +15,7 @@ urlpatterns = [
     path("chef/<int:pk>/", ChefDetailView.as_view(), name="chef-detail"),
     path("dish/", DishListView.as_view(), name="dish-list"),
     path("dish/<int:pk>/", DishDetailView.as_view(), name="dish-detail"),
+    path("dish/create/", DishCreateView.as_view(), name="dish-create"),
     path("product/", ProductListView.as_view(), name="product-list"),
 ]
 

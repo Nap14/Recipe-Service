@@ -47,5 +47,8 @@ class Dish(models.Model):
     ingredients = models.ManyToManyField(Product, blank=True)
     cooks = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name="dishes")
 
+    class Meta:
+        ordering = ("name",)
+
     def __str__(self):
         return f"{self.name}"

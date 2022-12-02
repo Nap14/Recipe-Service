@@ -1,7 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
+from .forms import DishForm
 from .models import Chef, Dish, DishType, Product
 
 
@@ -36,6 +38,12 @@ class DishListView(generic.ListView):
     queryset = Dish.objects.all().prefetch_related("ingredients")
     template_name = "dish/dish_list.html"
     paginate_by = 5
+
+
+class DishCreateView(LoginRequiredMixin, generic.CreateView):
+    form_class = DishForm
+    template_name = "dish/dish_create.html"
+    success_url = reverse_lazy("dish:dish-list")
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):

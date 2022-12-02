@@ -6,9 +6,12 @@
 
 {% block content %}
 <div class="main-content">
-  <div class="container mt-7">
+  <div class="container mt-8">
     {% if dish_list %}
-      <h2 class="mb-5">Dish list</h2>
+      <h2 class="mb-5">
+        Dish list
+        <a href="{% url 'dish:dish-create' %}"  style="float:right;" class="btn btn-sm btn-primary">Create</a>
+      </h2>
       <div class="row">
         <div class="col">
           <div class="card shadow">
