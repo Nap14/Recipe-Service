@@ -22,6 +22,16 @@ class DishForm(forms.ModelForm):
         fields = "__all__"
 
 
+class DishSearchForm(forms.Form):
+
+    name = forms.CharField(
+        max_length=100,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by title..."}),
+    )
+
+
 class DishTypeForm(forms.ModelForm):
 
     NAME_MIN_LENGTH = 3

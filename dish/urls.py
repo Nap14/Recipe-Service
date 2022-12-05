@@ -29,7 +29,9 @@ urlpatterns = [
     path(
         "product/<int:pk>/update/", ProductUpdateView.as_view(), name="product-update"
     ),
-    path("product/<int:pk>/delete/", ProductDeleteView.as_view(), name="product-delete"),
+    path(
+        "product/<int:pk>/delete/", ProductDeleteView.as_view(), name="product-delete"
+    ),
     path("dish-type/create/", DishTypeCreateView.as_view(), name="dish-type-create"),
 ]
 
