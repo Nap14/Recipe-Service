@@ -60,7 +60,7 @@
                 </h3>
                 {% for recept in chef.dishes.all %}
                   <div class="h5 mt-4">
-                    <i class="ni business_briefcase-24 mr-2"></i><a href="#">{{ recept.name }}</a>
+                    <i class="ni business_briefcase-24 mr-2"></i><a href="{% url 'dish:dish-detail' pk=recept.id %}">{{ recept.name }}</a>
                   </div>
                 {% endfor %}
               </div>
