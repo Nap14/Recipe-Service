@@ -20,6 +20,10 @@ def index(request):
     return render(request, "dish/index.html", context=context)
 
 
+def registration_success_view(request):
+    return render(request, "dish/success_registration.html")
+
+
 class ChefListView(LoginRequiredMixin, generic.ListView):
     model = Chef
     queryset = Chef.objects.all().prefetch_related("dishes")
@@ -36,7 +40,7 @@ class ChefDetailView(LoginRequiredMixin, generic.DetailView):
 class ChefCreateView(generic.CreateView):
     model = Chef
     form_class = ChefCreationForm
-    success_url = reverse_lazy("dish:home_page")
+    success_url = reverse_lazy("dish:chef-success")
 
 
 class DishListView(generic.ListView):

@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import (
     index,
+    registration_success_view,
     ChefListView,
     ChefDetailView,
     ChefCreateView,
@@ -21,6 +22,7 @@ urlpatterns = [
     path("chef/", ChefListView.as_view(), name="chef-list"),
     path("chef/<int:pk>/", ChefDetailView.as_view(), name="chef-detail"),
     path("chef/create/", ChefCreateView.as_view(), name="chef-create"),
+    path("chef/succes/", registration_success_view, name="chef-success"),
     path("dish/", DishListView.as_view(), name="dish-list"),
     path("dish/<int:pk>/", DishDetailView.as_view(), name="dish-detail"),
     path("dish/create/", DishCreateView.as_view(), name="dish-create"),
