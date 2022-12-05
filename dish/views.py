@@ -90,6 +90,11 @@ class ProductUpdateView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy("dish:product-list")
 
 
+class ProductDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Product
+    template_name = "dish/product_confirm_delete.html"
+    success_url = reverse_lazy("dish:product-list")
+
 class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
     model = DishType
     form_class = DishTypeForm

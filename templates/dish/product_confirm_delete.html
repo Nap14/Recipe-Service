@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+
+
+{% block content %}
+  <header class="header-2">
+    <div class="page-header min-vh-75 relative">
+      <span class="mask bg-gradient-dark"></span>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white pt-3 mt-n5">Delete?</h1>
+            <p class="lead text-white mt-3">Are you sure you want to deleted</p>
+            <hr>
+            <p class="text-white">all dishes with this type also will deleted</p>
+            <form method="post" action="">
+              {% csrf_token %}
+              <input class="btn badge-danger" type="submit" value="Yes, delete">
+            </form>
+            <a href="{% url 'dish:product-list' %}" class="btn btn-success">No</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
