@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import DishForm, DishTypeForm, DishSearchForm
+from .forms import DishForm, DishTypeForm, DishSearchForm, ProductSearchForm
 from .models import Chef, Dish, DishType, Product
 
 
@@ -92,6 +92,25 @@ class ProductListView(LoginRequiredMixin, generic.ListView):
     model = Product
     paginate_by = 5
     template_name = "dish/product_list.html"
+    queryset = Product.objects.all()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ProductListView, self).get_context_data(**kwargs)
+
+        name = self.request.GET.get("name", "")
+
+        context["search_form"] = ProductSearchForm(initial={"name": name})
+
+        return context
+
+    def get_queryset(self):
+
+        name = self.request.GET.get("name")
+
+        if name:
+            return self.queryset.filter(name__icontains=name)
+
+        return self.queryset
 
 
 class ProductCreateView(LoginRequiredMixin, generic.CreateView):

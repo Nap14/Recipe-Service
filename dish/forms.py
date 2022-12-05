@@ -28,7 +28,7 @@ class DishSearchForm(forms.Form):
         max_length=100,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by title..."}),
+        widget=forms.TextInput(attrs={"placeholder": "Search by name..."}),
     )
 
 
@@ -55,3 +55,13 @@ class DishTypeForm(forms.ModelForm):
     class Meta:
         model = DishType
         fields = ("name",)
+
+
+class ProductSearchForm(forms.Form):
+
+    name = forms.CharField(
+        max_length=100,
+        required=False,
+        label="",
+        widget=forms.TextInput(attrs={"placeholder": "Search by name..."}),
+    )

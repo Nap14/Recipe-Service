@@ -1,4 +1,5 @@
 {% extends "layouts/base.html" %}
+{% load crispy_forms_filters %}
 
 {% block title %}
   Products
@@ -12,6 +13,9 @@
           Product list
           <a href="{% url 'dish:product-create' %}"  style="float:right;" class="btn btn-sm btn-primary">Add</a>
         </h2>
+        <form method="get" action="">
+          {{ search_form|crispy }}
+        </form>
         <div class="row">
           <div class="col">
             <div class="card shadow">
