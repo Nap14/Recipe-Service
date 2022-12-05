@@ -3,7 +3,8 @@
 {% block content %}
   {% block navigation %}
 
-  {% endblock %}
+
+{% endblock %}
   <header class="header-2">
     <div class="page-header min-vh-75 relative" style="background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');">
       <span class="mask bg-gradient-dark"></span>
@@ -12,9 +13,10 @@
           <div class="col-lg-7 text-center mx-auto">
             <h1 class="text-white pt-3 mt-n5">Logged out</h1>
             <p class="lead text-white mt-3">Thanks for spending some quality time with the web site today.</p>
-            <a href="{% url 'logout' %}" class="btn btn-success">Login</a>
+            <a href="{% url 'login' %}" class="btn btn-success">Login</a>
           </div>
         </div>
       </div>
     </div>
+  </header>
 {% endblock %}
