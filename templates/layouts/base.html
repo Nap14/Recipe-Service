@@ -40,7 +40,9 @@ g
 
 </head>
 <body class="{% block body_class %}{% endblock %} bg-gray-200">
-  {% include 'includes/navigation.html' %}
+  {% block navigation %}
+    {% include 'includes/navigation.html' %}
+  {% endblock %}
 
   {% include 'includes/scripts.html' %}
   {% block content %}
