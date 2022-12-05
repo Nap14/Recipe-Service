@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import DishForm, DishTypeForm, DishSearchForm, ProductSearchForm
+from .forms import DishForm, DishTypeForm, DishSearchForm, ProductSearchForm, ChefCreationForm
 from .models import Chef, Dish, DishType, Product
 
 
@@ -31,6 +31,12 @@ class ChefDetailView(LoginRequiredMixin, generic.DetailView):
     model = Chef
     template_name = "dish/chef_detail.html"
     queryset = Chef.objects.all().prefetch_related("dishes")
+
+
+class ChefCreateView(generic.CreateView):
+    model = Chef
+    form_class = ChefCreationForm
+    success_url = reverse_lazy("dish:home_page")
 
 
 class DishListView(generic.ListView):
