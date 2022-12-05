@@ -38,7 +38,7 @@
             </div>
             <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
               {% if user in dish.cooks %}
-                <a href="#!" class="btn btn-info float-right">Edit</a>
+                <a href="{% url 'dish:dish-update' pk=dish.id %}" class="btn btn-info float-right">Edit</a>
               {% endif %}
             </div>
             <div class="card-body pt-0 pt-md-4">
