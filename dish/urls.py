@@ -10,7 +10,7 @@ from .views import (
     ProductListView,
     ProductCreateView,
     ProductUpdateView,
-    DishTypeCreateView,
+    DishTypeCreateView, DishDeleteView,
 )
 
 urlpatterns = [
@@ -21,6 +21,7 @@ urlpatterns = [
     path("dish/<int:pk>/", DishDetailView.as_view(), name="dish-detail"),
     path("dish/create/", DishCreateView.as_view(), name="dish-create"),
     path("dish/<int:pk>/update/", DishUpdateView.as_view(), name="dish-update"),
+    path("dish/<int:pk>/delete/", DishDeleteView.as_view(), name="dish-delete"),
     path("product/", ProductListView.as_view(), name="product-list"),
     path("product/create/", ProductCreateView.as_view(), name="product-create"),
     path(

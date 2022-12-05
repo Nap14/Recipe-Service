@@ -54,7 +54,7 @@
                         <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
                           <div class="d-none d-lg-block">
                             <a class="dropdown-item" href="{% url 'dish:dish-update' pk=dish.id %}">Edit</a>
-                            <a class="dropdown-item" href="#">Delete</a>
+                            <a class="dropdown-item" href="{% url 'dish:dish-delete' pk=dish.id %}">Delete</a>
                           </div>
                         </div>
                       </div>
