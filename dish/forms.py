@@ -11,7 +11,6 @@ from dish.models import Dish, Product, DishType, Chef
 
 
 class ChefCreationForm(UserCreationForm):
-
     class Meta:
         model = get_user_model()
         fields = UserCreationForm.Meta.fields + ("first_name", "last_name")

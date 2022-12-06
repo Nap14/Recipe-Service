@@ -3,7 +3,13 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import DishForm, DishTypeForm, DishSearchForm, ProductSearchForm, ChefCreationForm
+from .forms import (
+    DishForm,
+    DishTypeForm,
+    DishSearchForm,
+    ProductSearchForm,
+    ChefCreationForm,
+)
 from .models import Chef, Dish, DishType, Product
 
 
