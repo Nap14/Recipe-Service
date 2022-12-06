@@ -1,0 +1,78 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+  Dish list
+{% endblock %}
+
+{% block content %}
+<div class="main-content">
+  <div class="container mt-8">
+    {% if dish_list %}
+      <h2 class="mb-5">
+        Dish list
+        <a href="{% url 'dish:dish-create' %}"  style="float:right;" class="btn btn-sm btn-primary">Create</a>
+      </h2>
+      <form method="get" action="">
+        {{ search_form|crispy }}
+      </form>
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Dish name</th>
+                  <th scope="col">Dish type <a href="{% url 'dish:dish-type-create' %}">+</a></th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Dish price</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for dish in dish_list %}
+                  <tr>
+                    <th scope="row">
+                      <div class="media align-items-center">
+                        <div class="media-body">
+                          <a href="{% url 'dish:dish-detail' pk=dish.id %}"><span class="mb-0 text-sm">{{ dish.name }}</span></a>
+                        </div>
+                      </div>
+                    </th>
+                    <td>
+                      {{ dish.dish_type }}
+                    </td>
+                    <td>
+                      <span class="mb-0 text-sm">
+                        {{ dish.description }}
+                      </span>
+                    </td>
+                    <td>
+                      {{ dish.price }} $
+                    </td>
+                    <td class="text-right">
+                      <div class="dropdown">
+                        <a class="cursor-pointer" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+                          <div class="d-none d-lg-block">
+                            <a class="dropdown-item" href="{% url 'dish:dish-update' pk=dish.id %}">Edit</a>
+                            <a class="dropdown-item" href="{% url 'dish:dish-delete' pk=dish.id %}">Delete</a>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                {% empty %}
+                  <p>Have not dishes</p>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

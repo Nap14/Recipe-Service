@@ -1,0 +1,70 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_filters %}
+
+{% block title %}
+  Products
+{% endblock %}
+
+{% block content %}
+    <div class="main-content">
+    <div class="container mt-7">
+      {% if product_list %}
+        <h2 class="mb-5">
+          Product list
+          <a href="{% url 'dish:product-create' %}"  style="float:right;" class="btn btn-sm btn-primary">Add</a>
+        </h2>
+        <form method="get" action="">
+          {{ search_form|crispy }}
+        </form>
+        <div class="row">
+          <div class="col">
+            <div class="card shadow">
+              <table class="table align-items-center table-flush">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Product name</th>
+                    <th scope="col">Product units</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for product in product_list %}
+                    <tr>
+                      <td>{{ product.id }}</td>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <div class="media-body">
+                            <span class="mb-0 text-sm">{{ product.name }}</span>
+                          </div>
+                        </div>
+                      </th>
+                      <td>
+                        {{ product.units }}
+                      </td>
+                      <td class="text-right">
+                        <div class="dropdown">
+                          <a class="cursor-pointer" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-ellipsis-v"></i>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+                            <div class="d-none d-lg-block">
+                              <a class="dropdown-item" href="{% url 'dish:product-update' pk=product.id %}">Edit</a>
+                              <a class="dropdown-item" href="{% url 'dish:product-delete' pk=product.id %}">Delete</a>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  {% empty %}
+                    <p>Have not dishes</p>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
