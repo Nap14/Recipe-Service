@@ -38,7 +38,7 @@ class Product(models.Model):
 class Dish(models.Model):
     name = models.CharField(max_length=255)
     created_data = models.DateTimeField(auto_now_add=True)
-    description = models.CharField(max_length=500, blank=True)
+    description = models.CharField(max_length=50, blank=True)
     steps = models.TextField()
     price = models.DecimalField(max_digits=7, decimal_places=2, blank=True)
     dish_type = models.ForeignKey(
